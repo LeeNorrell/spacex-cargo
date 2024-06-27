@@ -11,11 +11,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const { 
-    primaryEmailAddress: {
-      emailAddress,
-    },
-  } = await currentUser();
+  
   return (
     <ClerkProvider>
     <html lang="en">
@@ -23,15 +19,14 @@ export default async function RootLayout({ children }) {
         <header>
           <div>
           <SignedOut>
-            <SignInButton />
+            <SignInButton mode="modal"/>
           </SignedOut>
           <SignedIn>
-            <p>You are logged in as {emailAddress}</p>
-            <UserButton />
+            <UserButton showName/>
           </SignedIn>
           </div>
         </header>
-        <div style={{display: 'flex', border: 'solid red 1px'}}>
+        <div >
           <NavBar />
           <div>
             {children}

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Navbar = () => {
     const pathname = usePathname()
     return (
-      <nav style={{ border: 'solid black 1px'}}>
+      <nav >
         <ul>
           <li>
             <Link 
