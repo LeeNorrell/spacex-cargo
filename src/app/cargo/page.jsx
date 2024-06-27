@@ -2,7 +2,7 @@ const Cargo = () => {
 
     return (
     <div>
-        Cargo
+        Cargo Page
     </div>
 )};
 
