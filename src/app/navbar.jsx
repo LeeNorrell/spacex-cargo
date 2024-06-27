@@ -1,26 +1,30 @@
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+'use client'
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const Navbar = () => {
     const pathname = usePathname()
     return (
-        <nav>
-      <ul>
-        <li>
-          <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={`link ${pathname === '/cargo' ? 'active' : ''}`}
-            href="/cargo"
-          >
-            Cargo
-          </Link>
-        </li>
-      </ul>
-    </nav> 
+      <nav style={{ border: 'solid black 1px'}}>
+        <ul>
+          <li>
+            <Link 
+              href="/"
+              style={{ color: `${pathname === '/' ? 'red' : 'black'}`}}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/cargo"
+              style={{ color: `${pathname === '/cargo' ? 'red' : 'black'}`}}
+            >
+              Cargo
+            </Link>
+          </li>
+        </ul>
+      </nav> 
     )
 }
 export default Navbar;
