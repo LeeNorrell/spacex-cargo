@@ -9,7 +9,7 @@ import {
 } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 import NavBar from "./navbar";
-// import "./globals.css";
+import "./globals.css";
 
 export const metadata = {
   title: "SpaceX Cargo",
@@ -20,7 +20,8 @@ export default async function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="bg-auto bg-no-repeat bg-center bg-[url('/images/spaceX-1.jpg')]">
+        <body>
+          
           <header className="flex justify-evenly pt-4">
             <div>
               <h1 className="text-white text-2xl">SpaceX</h1>
@@ -37,14 +38,14 @@ export default async function RootLayout({ children }) {
                   showName
                   appearance={{
                     elements: {
-                      userButtonOuterIdentifier: 'text-white'
-                    }
+                      userButtonOuterIdentifier: "text-white",
+                    },
                   }}
                 />
               </SignedIn>
             </div>
           </header>
-          <div>{children}</div>
+          <div>{children}</div> 
         </body>
       </html>
     </ClerkProvider>
