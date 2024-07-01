@@ -3,14 +3,20 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const Navbar = () => {
-    const pathname = usePathname()
+    const pathname = usePathname();
+
+    const setLinkColor = (linkPath) => pathname === linkPath 
+      ? 'text-red-600'
+      : 'text-white';
+    ;
+
     return (
       <nav>
         <ul className="flex gap-x-4 text-2xl">
           <li>
             <Link 
               href="/"
-              style={{ color: `${pathname === '/' ? 'red' : 'white'}`}}
+              className={setLinkColor('/')}
             >
               Home
             </Link>
@@ -18,7 +24,7 @@ const Navbar = () => {
           <li>
             <Link 
               href="/cargo"
-              style={{ color: `${pathname === '/cargo' ? 'red' : 'white'}`}}
+              className={setLinkColor('/cargo')}
             >
               Cargo
             </Link>

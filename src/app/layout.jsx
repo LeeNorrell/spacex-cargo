@@ -33,7 +33,14 @@ export default async function RootLayout({ children }) {
                 <SignInButton mode="modal" />
               </SignedOut>
               <SignedIn>
-                <UserButton showName/>
+                <UserButton
+                  showName
+                  appearance={{
+                    elements: {
+                      userButtonOuterIdentifier: 'text-white'
+                    }
+                  }}
+                />
               </SignedIn>
             </div>
           </header>
