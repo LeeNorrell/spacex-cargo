@@ -12,11 +12,13 @@
     "@clerk/nextjs": "^5.1.6",
     "@headlessui/react": "^2.1.1",
     "@heroicons/react": "^2.1.4",
+    "@sequelize/sqlite3": "^7.0.0-alpha.41",
     "classnames": "^2.5.1",
-    "level": "^8.0.1",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sequelize": "^7.0.0-alpha.9",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/node": "20.14.9",
