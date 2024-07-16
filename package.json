@@ -15,9 +15,10 @@
     "@sequelize/sqlite3": "^7.0.0-alpha.41",
     "classnames": "^2.5.1",
     "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sequelize": "^7.0.0-alpha.9",
+    "sqlite": "^5.0.1",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {

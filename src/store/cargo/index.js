@@ -1,15 +1,21 @@
-import { Sequelize, DataTypes } from '@sequelize/core';
-import { SqliteDialect, OPEN_READWRITE } from '@sequelize/sqlite3';
+import { DataTypes } from '@sequelize/core';
+import sequelize from '../db/index';
 
-const sequelize = new Sequelize({
-  storage: 'file:./db/spacexcargo.db',
-  mode: OPEN_READWRITE,
-});
 
 const cargo = sequelize.define('cargo', {
-  customer: DataTypes.STRING,
-  weight: DataTypes.INTEGER,
-  destination: DataTypes.STRING
+  id: {
+    type: DataTypes.STRING,
+    primaryKey: true,
+  },
+  customer: {
+    type: DataTypes.STRING,
+  },
+  weight: {
+   type: DataTypes.INTEGER,
+  }, 
+  destination: {
+   type: DataTypes.STRING,
+  } 
 });
 
 export default cargo;
