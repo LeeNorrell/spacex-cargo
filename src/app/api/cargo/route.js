@@ -1,5 +1,11 @@
-import sqlite from 'sqlite3';
+import { create } from 'store/cargo';
 
-export const GET = async (request) => {
-  return Response.json({ id: 'jspeaks' });
+export const POST = async (request) => {
+  const {
+    weight,
+  } = await request.json();
+
+  create({ weight });
+
+  return Response.json({ weight });
 };

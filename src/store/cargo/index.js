@@ -1,25 +1,38 @@
 import { db } from "../database";
 
+export const create = (props) => {
+  const {
+    weight,
+  } = props;
 
-export const migrate = () => {
+  if (weight == null) {
+    return false;
+  }
+
   db.serialize(() => {
     db.run(
-      `
-      CREATE TABLE IF NOT EXISTS articles (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        customer TEXT NOT NULL,
-        weight TEXT NOT NULL,
-        destination TEXT NOT NULL,
-      );
-    `,
+      `CREATE TABLE IF NOT EXISTS cargo (
+        id INTEGER PRIMARY KEY,
+        weight INTEGER
+      )`,
       (err) => {
         if (err) {
           console.error(err.message);
+          return false;
         }
-        console.log("articles table created successfully.");
+
+        db.run(`INSERT INTO cargo(weight) values (?)`, weight, function(err) {
+          if (err) {
+            console.error(err.message);
+            return false;
+          }
+          return true;
+        });
       }
     );
   });
+
+  return true;
 }
 
 // import { DataTypes } from '@sequelize/core';
