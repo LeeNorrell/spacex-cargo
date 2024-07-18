@@ -1,21 +1,15 @@
 'use client'
-import { useEffect, useState } from 'react';
 
-const stats = [
-  { name: 'Total Customers', stat: '700' },
-  { name: 'Avg. Delivery Rate', stat: '100%' },
-  { name: 'Avg. Delivery Time', stat: '4 hrs' },
-]
 import Link from 'next/link';
 
 const Cargo = () => {
-    const [cargoItems, setCargoItems] = useState([]);
+    // const [cargoItems, setCargoItems] = useState([]);
 
-    useEffect(() => {
-      const response = fetch('/api/cargo');
-      console.log(response);
-      setCargoItems(response.data);
-    }, []);
+    // useEffect(() => {
+    //   const response = fetch('/api/cargo');
+    //   console.log(response);
+    //   setCargoItems(response.data);
+    // }, []);
 
     return (
         <div >
@@ -44,18 +38,14 @@ const Cargo = () => {
         </div>
         <div className="absolute inset-x-6 top-60  h-16 ...">
         <h3 className="text-base font-semibold leading-6 text-xl text-white">Last 30 days</h3>
-      <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+      {/* <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
         {cargoItems.map((item) => (
           <div key={item.id}>
             <span>{item.id}</span>
             <span>{item.weight}</span>
           </div>
-          // <div key={item.name} className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-          //   <dt className="truncate text-sm font-medium text-gray-500">{item.name}</dt>
-          //   <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{item.stat}</dd>
-          // </div>
         ))}
-      </dl>
+      </dl> */}
         </div>
         
       </div>
