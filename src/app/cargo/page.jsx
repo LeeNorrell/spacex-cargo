@@ -1,15 +1,28 @@
 'use client'
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
 
 const Cargo = () => {
-    // const [cargoItems, setCargoItems] = useState([]);
+    const [cargoItems, setCargoItems] = useState([]); 
 
-    // useEffect(() => {
-    //   const response = fetch('/api/cargo');
-    //   console.log(response);
-    //   setCargoItems(response.data);
-    // }, []);
+    useEffect(() => {
+      const fetchData = async () => {
+        const response = await fetch('/api/cargo');
+        let data;
+        try {
+          data = await response.json();
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
+          data = [];
+        }
+        console.log(data);
+        setCargoItems(data);
+      };
+    
+      fetchData();
+    }, []);
 
     return (
         <div >
@@ -38,14 +51,14 @@ const Cargo = () => {
         </div>
         <div className="absolute inset-x-6 top-60  h-16 ...">
         <h3 className="text-base font-semibold leading-6 text-xl text-white">Last 30 days</h3>
-      {/* <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-        {cargoItems.map((item) => (
+      <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        {cargoItems.length > 0 && cargoItems.map((item) => (
           <div key={item.id}>
             <span>{item.id}</span>
             <span>{item.weight}</span>
           </div>
         ))}
-      </dl> */}
+      </dl>
         </div>
         
       </div>
